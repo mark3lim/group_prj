@@ -19,7 +19,6 @@ public class DbConn {
 		return dbConn;
 	}
 	
-	
 	/**
 	 * DB 연결을 얻는 일
 	 * @param ip -서버 주소
