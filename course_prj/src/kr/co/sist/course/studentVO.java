@@ -1,6 +1,6 @@
 package kr.co.sist.course;
 
-public class leetest {
+public class studentVO {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
