@@ -1,5 +1,5 @@
 package kr.co.sist.course;
 
-public class leetest2 {
+public class studentDAO {
 
 }
