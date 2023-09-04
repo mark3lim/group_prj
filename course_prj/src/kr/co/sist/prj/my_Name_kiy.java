@@ -6,7 +6,7 @@ public class my_Name_kiy {
 
 	public static void main(String[] args) {
 
-		JOptionPane.showMessageDialog(null, "임태균 바보");
+		JOptionPane.showMessageDialog(null, "임태균 ㅇ바보");
 		
 	}
 
