@@ -61,8 +61,11 @@ public class EmployProfManageDialog extends JDialog {
 		add(jlblback);
 		
 		setLayout(null);
+		setResizable(false);
 		
 		setBounds(500, 100, 1000, 700);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}//EmployProfManageDialog
 	
