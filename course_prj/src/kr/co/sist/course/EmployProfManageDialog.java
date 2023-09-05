@@ -1,4 +1,4 @@
-package kr.co.sist.prj;
+package kr.co.sist.course;
 
 import java.awt.Font;
 
