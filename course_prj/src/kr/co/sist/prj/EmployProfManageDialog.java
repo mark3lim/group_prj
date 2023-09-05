@@ -18,7 +18,7 @@ public class EmployProfManageDialog extends JDialog {
 	public EmployProfManageDialog() {
 		
 		JLabel jlblProManage=new JLabel("교수관리");
-		JLabel jlblback=new JLabel(new ImageIcon("E:/dev/workspace/html_prj/src/main/webapp/common/images/backgr.png"));
+		JLabel jlblback=new JLabel(new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/prj/backgr.png"));
 		DefaultComboBoxModel<String> dcbmSearch=new DefaultComboBoxModel<String>();
 		JCheckBox jcbSearch=new JCheckBox();
 		JTextField jtfSearch=new JTextField();

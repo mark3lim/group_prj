@@ -8,6 +8,7 @@ public class EmployMainFrame extends JFrame {
 	public EmployMainFrame() {
 		setBounds(500, 100, 1000, 700);
 		setVisible(true);
+		
 	}
 
 	public static void main(String[] args) {
