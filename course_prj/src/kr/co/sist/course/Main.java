@@ -18,7 +18,10 @@ public class Main extends JFrame{
 	}
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		new Main();
+=======
+>>>>>>> branch 'main' of https://github.com/mark3lim/group_prj.git
 	}
 
 }
