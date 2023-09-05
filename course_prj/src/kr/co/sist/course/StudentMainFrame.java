@@ -1,12 +1,16 @@
 package kr.co.sist.course;
 
 import java.awt.Color;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+import oracle.sql.CHAR;
 
 @SuppressWarnings("serial")
 public class StudentMainFrame extends JFrame {
@@ -32,20 +36,30 @@ public class StudentMainFrame extends JFrame {
 		jlblMyPhoto.setBounds(100, 100, 200, 250);
 		jlblMyPhoto.setBorder(new LineBorder(Color.red));
 		
-		JPanel pnlImg = new JPanel();
-		pnlImg.setBorder(new LineBorder(Color.BLUE));
+//		ImageIcon icon = new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/course/images/bg.png");
+		
+//		JPanel pnlBg = new JPanel() {
+//			public void paint(Graphics g) {//그리는 함수
+//				Image img = new ImageIcon(Main.class.getResource("../images/bg.png")).getImage();
+//				g.drawImage(img, 0, 0, null);//background를 그려줌		
+//			}
+//		};w
+//		pnlBg.imag
+//		pnlBg.setBorder(new LineBorder(Color.BLUE));
 
 		JPanel pnlButton = new JPanel();
 		pnlButton.setBounds(500, 100, 400, 400);
 		pnlButton.setBorder(new LineBorder(Color.red));
 		
-		pnlImg.add(jlblMyPhoto);
-		pnlImg.add(pnlButton);
+		setLayout(null);
 		
-		pnlImg.setLayout(null);
-		add(pnlImg);
+		add(jlblMyPhoto);
+		add(pnlButton);
 		
-		setBounds(200, 150, 1000, 700);
+		
+//		add(pnlBg);
+		
+		setBounds(200, 150, 1200, 800);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
