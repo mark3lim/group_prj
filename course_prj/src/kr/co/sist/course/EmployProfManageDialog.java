@@ -51,6 +51,7 @@ public class EmployProfManageDialog extends JDialog {
 		jtfSearch.setFont(font);
 		jbtnSearch.setFont(font);
 		jbtnAdd.setFont(font);
+		//00
 		
 		add(jlblTitle);
 //		add(jtProf);
