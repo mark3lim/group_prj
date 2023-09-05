@@ -82,6 +82,7 @@ public class EmployStuManageDialog extends JDialog {
 		jbtnAdd.setFont(font);
 		jtStu.setFont(font);
 
+		//commit
 		// setBounds
 		jlblback.setBounds(0, 0, 1000, 700);
 		jlblTitle.setBounds(115, 65, 210, 50);
