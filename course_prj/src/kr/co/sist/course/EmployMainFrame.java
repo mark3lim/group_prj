@@ -1,4 +1,4 @@
-package kr.co.sist.prj;
+package kr.co.sist.course;
 
 import javax.swing.JFrame;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class EmployMainFrame extends JFrame {
 
 	public EmployMainFrame() {
-		setBounds(500, 100, 1000, 700);
+		setBounds(500, 100, 1200, 800);
 		setVisible(true);
 	}
 
