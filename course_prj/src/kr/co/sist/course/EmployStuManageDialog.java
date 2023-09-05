@@ -13,11 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
-import javax.swing.plaf.ColorUIResource;
-import javax.swing.plaf.basic.BasicComboBoxUI;
-import javax.swing.plaf.metal.MetalComboBoxUI;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
@@ -36,7 +32,7 @@ public class EmployStuManageDialog extends JDialog {
 		JLabel jlblTitle = new JLabel("학생 관리");
 		// 배경
 		JLabel jlblback = new JLabel(
-				new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/prj/backgr.png"));
+				new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/course/backgr.png"));
 		// 검색
 		DefaultComboBoxModel<String> dcbmSearch = new DefaultComboBoxModel<String>();
 		JComboBox<String> jcbSearch = new JComboBox<String>(dcbmSearch);
@@ -46,41 +42,70 @@ public class EmployStuManageDialog extends JDialog {
 		JTextField jtfSearch = new JTextField();
 		// 등록 버튼
 		JButton jbtnAdd = new JButton("등록");
-		// 조회 버튼
+		// 검색 조회 버튼
 		JButton jbtnSearch = new JButton("조회");
+		// 학부 학과 조회 버튼
+		JButton jbtnDMSearch = new JButton("조회");
 		// 테이블
 		String[] columnNames = { "No", "학번", "이름", "학부", "학과", "학년", "전화번호", "이메일", "주소" };
 		DefaultTableModel dtmStu = new DefaultTableModel(null, columnNames);
 		JTable jtStu = new JTable(dtmStu);
 		JScrollPane jspJtStu = new JScrollPane(jtStu);
-
-
+		// 학부
+		DefaultComboBoxModel<String> dcbmDept = new DefaultComboBoxModel<String>();
+		JComboBox<String> jcbDept = new JComboBox<String>(dcbmDept);
+		// 임시 값
+		dcbmDept.addElement("컴퓨터공학부");
+		dcbmDept.addElement("연극학부");
+		// 학과
+		DefaultComboBoxModel<String> dcbmMajor = new DefaultComboBoxModel<String>();
+		JComboBox<String> jcbMajor = new JComboBox<String>(dcbmMajor);
+		// 임시 값
+		dcbmMajor.addElement("컴퓨터공학과");
+		dcbmMajor.addElement("연극영화과");
 
 		// 행크기 변경 - setRowHeight
 		jtStu.setRowHeight(25);
+		
+		jtStu.getColumnModel().getColumn(0).setPreferredWidth(30);
+		jtStu.getColumnModel().getColumn(1).setPreferredWidth(60);
+		jtStu.getColumnModel().getColumn(5).setPreferredWidth(30);
 
 		// setFont
 		jlblTitle.setFont(new Font("Pretendard", Font.BOLD, 20));
 		jcbSearch.setFont(font);
+		jcbDept.setFont(font);
+		jcbMajor.setFont(font);
 		jtfSearch.setFont(font);
 		jbtnSearch.setFont(font);
+		jbtnDMSearch.setFont(font);
 		jbtnAdd.setFont(font);
+		jtStu.setFont(font);
 
 		// setBounds
-		jlblback.setBounds(0, 0, 900, 600);
-		jlblTitle.setBounds(95, 50, 210, 50);
-		jcbSearch.setBounds(470, 65, 100, 30);
-		jtfSearch.setBounds(580, 65, 140, 30);
-		jbtnSearch.setBounds(730, 65, 60, 30);
-		jbtnAdd.setBounds(700, 450, 80, 30);
-		jspJtStu.setBounds(95, 140, 700, 300);
+		jlblback.setBounds(0, 0, 1000, 700);
+		jlblTitle.setBounds(115, 65, 210, 50);
+		jcbSearch.setBounds(555, 80, 100, 30);
+		jtfSearch.setBounds(665, 80, 140, 30);
+		jbtnSearch.setBounds(815, 80, 60, 30);
+		jbtnAdd.setBounds(795, 540, 80, 30);
+		jspJtStu.setBounds(110, 170, 770, 355);
+		jcbDept.setBounds(113, 118, 120, 30);
+		jcbMajor.setBounds(243, 118, 120, 30);
+		jbtnDMSearch.setBounds(373, 118, 60, 30);
 
 		// setBackground
-		jcbSearch.setBackground(new Color(0xE0E0E0));
-		jbtnSearch.setBackground(new Color(0xE0E0E0));
-		jbtnAdd.setBackground(new Color(0xE0E0E0));
-		jtfSearch.setBorder(new LineBorder(new Color(0xE0E0E0)));
+		Color color = new Color(0xE0E0E0);
+		jcbSearch.setBackground(Color.white);
+		jcbDept.setBackground(Color.white);
+		jcbMajor.setBackground(Color.white);
+		jbtnSearch.setBackground(color);
+		jbtnDMSearch.setBackground(color);
+		jbtnAdd.setBackground(color);
+		jtfSearch.setBorder(new LineBorder(new Color(0xCFCFCF)));
+		jcbDept.setBorder(null);
 		jbtnSearch.setBorder(null);
+		jbtnDMSearch.setBorder(null);
 		jbtnAdd.setBorder(null);
 
 		// add
@@ -90,6 +115,9 @@ public class EmployStuManageDialog extends JDialog {
 		add(jlblTitle);
 		add(jbtnAdd);
 		add(jspJtStu);
+		add(jcbDept);
+		add(jcbMajor);
+		add(jbtnDMSearch);
 
 		// 배경
 		add(jlblback);
