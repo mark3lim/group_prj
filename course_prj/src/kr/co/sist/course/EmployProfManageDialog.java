@@ -5,6 +5,7 @@ import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -61,9 +62,7 @@ public class EmployProfManageDialog extends JDialog {
 		setLayout(null);
 		
 		setBounds(500, 100, 1000, 700);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+
 	}//EmployProfManageDialog
 	
 	public static void main(String[] args) {
