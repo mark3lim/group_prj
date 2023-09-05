@@ -7,9 +7,11 @@ public class Main extends JFrame{
 	public Main() {
 		super("메인");
 		
-		setBounds(500,100,1000,700);
+		setBounds(400,100,1200,800);
 		setVisible(true);
 		new EmployStuManageDialog(this);
+		
+		this.setResizable(false);
 		
 		//임시 window closing
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
