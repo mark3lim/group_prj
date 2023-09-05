@@ -1,7 +1,6 @@
 package kr.co.sist.course;
 
 import java.awt.Color;
-import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -10,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import oracle.sql.CHAR;
 
 @SuppressWarnings("serial")
 public class StudentMainFrame extends JFrame {
@@ -36,16 +34,8 @@ public class StudentMainFrame extends JFrame {
 		jlblMyPhoto.setBounds(100, 100, 200, 250);
 		jlblMyPhoto.setBorder(new LineBorder(Color.red));
 		
-//		ImageIcon icon = new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/course/images/bg.png");
-		
-//		JPanel pnlBg = new JPanel() {
-//			public void paint(Graphics g) {//그리는 함수
-//				Image img = new ImageIcon(Main.class.getResource("../images/bg.png")).getImage();
-//				g.drawImage(img, 0, 0, null);//background를 그려줌		
-//			}
-//		};w
-//		pnlBg.imag
-//		pnlBg.setBorder(new LineBorder(Color.BLUE));
+		JLabel jlblBg = new JLabel(new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/course/images/mainBg.png"));
+		jlblBg.setBounds(0, 0, 1200, 800);
 
 		JPanel pnlButton = new JPanel();
 		pnlButton.setBounds(500, 100, 400, 400);
@@ -53,6 +43,7 @@ public class StudentMainFrame extends JFrame {
 		
 		setLayout(null);
 		
+		add(jlblBg);
 		add(jlblMyPhoto);
 		add(pnlButton);
 		
