@@ -2,7 +2,6 @@ package kr.co.sist.course;
 
 import java.awt.Color;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
