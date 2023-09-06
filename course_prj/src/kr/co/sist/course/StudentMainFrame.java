@@ -26,7 +26,7 @@ public class StudentMainFrame extends JFrame {
 	private JLabel jlblDept;
 	private JLabel jlblMajor;
 	private JLabel jlblEmail;
-	private JLabel jlbleLoginTime;
+	private JLabel jlblLoginTime;
 
 	private static StudentVO sVO;
 	
@@ -69,13 +69,13 @@ public class StudentMainFrame extends JFrame {
 		jlblMajor.setBounds(100, 35, 200, 30);
 		jlblEmail = new JLabel("test@gmail.com");
 		jlblEmail.setBounds(100, 70, 200, 30);
-		jlbleLoginTime = new JLabel("2023.09.06 12:01:43");
-		jlbleLoginTime.setBounds(100, 105, 200, 30);
+		jlblLoginTime = new JLabel();
+		jlblLoginTime.setBounds(100, 105, 200, 30);
 		
 		pnlInfoTag.add(jlblDept);
 		pnlInfoTag.add(jlblMajor);
 		pnlInfoTag.add(jlblEmail);
-		pnlInfoTag.add(jlbleLoginTime);
+		pnlInfoTag.add(jlblLoginTime);
 		
 		//이름, 내 정보, 로그아웃이 모여있는 패널과 설정
 		JPanel pnlName = new JPanel();
@@ -107,10 +107,21 @@ public class StudentMainFrame extends JFrame {
 		add(pnlName);
 		
 		add(jlblBg);
+
+		StudentMainEvt sme = new StudentMainEvt(this);
+		//로그인 시간 설정
+		sme.setLoginTime();
+		
+		//이벤트 연결
+		jbtnMyProfile.addActionListener(sme);
+		jbtnLogout.addActionListener(sme);
+		jbtnRegisterSubject.addActionListener(sme);
+		jbtnGradeSearch.addActionListener(sme);
+		jbtnCourseApply.addActionListener(sme);
+		addWindowListener(sme);
 		
 		setBounds(200, 150, 1200, 800);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public JPanel setInfoLable() {
@@ -178,8 +189,8 @@ public class StudentMainFrame extends JFrame {
 		return jlblEmail;
 	}
 
-	public JLabel getJlbleLoginTime() {
-		return jlbleLoginTime;
+	public JLabel getJlblLoginTime() {
+		return jlblLoginTime;
 	}
 
 	public static StudentVO getsVO() {
