@@ -10,8 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import oracle.sql.CHAR;
-
 @SuppressWarnings("serial")
 public class StudentMainFrame extends JFrame {
 	

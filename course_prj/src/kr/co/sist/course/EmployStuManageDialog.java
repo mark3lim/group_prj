@@ -32,7 +32,7 @@ public class EmployStuManageDialog extends JDialog {
 		JLabel jlblTitle = new JLabel("학생 관리");
 		// 배경
 		JLabel jlblback = new JLabel(
-				new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/course/backgr.png"));
+				new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/course/images/backgr.png"));
 		// 검색
 		DefaultComboBoxModel<String> dcbmSearch = new DefaultComboBoxModel<String>();
 		JComboBox<String> jcbSearch = new JComboBox<String>(dcbmSearch);
@@ -82,7 +82,6 @@ public class EmployStuManageDialog extends JDialog {
 		jbtnAdd.setFont(font);
 		jtStu.setFont(font);
 
-		//commit
 		// setBounds
 		jlblback.setBounds(0, 0, 1000, 700);
 		jlblTitle.setBounds(115, 65, 210, 50);
@@ -123,11 +122,10 @@ public class EmployStuManageDialog extends JDialog {
 		// 배경
 		add(jlblback);
 		
-		this.setResizable(false);
+		setResizable(false);
 
 		setBounds(main.getX() + 100, main.getY() + 50, 1000, 700);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
 }
