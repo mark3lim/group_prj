@@ -1,13 +1,11 @@
 package kr.co.sist.course;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
 public class EmployMainFrame extends EmpMainFrame {
@@ -16,11 +14,6 @@ public class EmployMainFrame extends EmpMainFrame {
 	private JButton jbtnProfesorManage;
 	private JButton jbtnMajorManage;
 	private JButton jbtnSubjectManage;
-	private JButton jbtnMyInfo;
-	private JButton jbtnLogout;
-	private JLabel jlblMyName;
-//	private JLabel jlblMyDept;
-//	private JLabel jlblMyMajor;
 	private JLabel jlblEmpno;
 	private JLabel jlblMyEmail;
 	private JLabel jlblLoginTime;
@@ -28,8 +21,6 @@ public class EmployMainFrame extends EmpMainFrame {
 	static EmployVO eVO;
 	
 	public EmployMainFrame() {
-		System.out.println("test");
-		
 		//메인 버튼
 		flow.setVgap(40);
 		Dimension d = new Dimension(300, 50);
@@ -61,21 +52,19 @@ public class EmployMainFrame extends EmpMainFrame {
 		pnlInfoTag.add(jlblLoginTime);
 		
 		//이름, 내 정보 버튼, 로그아웃 버튼 창
-		Font font = new Font("맑은 고딕", Font.BOLD, 16);
-		
-		jlblMyName = new JLabel("농담곰", JLabel.CENTER);
-		jlblMyName.setBounds(0, 2, 80, 30);
-		jlblMyName.setBorder(new LineBorder(Color.pink));
-		jlblMyName.setFont(font);
-		
-		jbtnMyInfo = new JButton("내 정보");
-		jbtnMyInfo.setBounds(90, 5, 85, 25);
-		jbtnLogout = new JButton("로그아웃");
-		jbtnLogout.setBounds(190, 5, 85, 25);
+		jlblMyName.setText("농담곰(관리자)");
+		jlblMyName.setHorizontalAlignment(JLabel.CENTER);
 		
 		pnlName.add(jlblMyName);
-		pnlName.add(jbtnMyProfile);
-		pnlName.add(jbtnLogout);
+
+		EmployMainEvt eme = new EmployMainEvt(this);
+		jbtnStuManage.addActionListener(eme);
+		jbtnProfesorManage.addActionListener(eme);
+		jbtnMajorManage.addActionListener(eme);
+		jbtnSubjectManage.addActionListener(eme);
+		jbtnMyProfile.addActionListener(eme);
+		jbtnLogout.addActionListener(eme);
+		addWindowListener(eme);
 		
 	}
 	
@@ -96,10 +85,45 @@ public class EmployMainFrame extends EmpMainFrame {
 			pnl.add(jl[i]);
 		}
 		
-		
 		return pnl;
 	}
 
+	public JButton getJbtnStuManage() {
+		return jbtnStuManage;
+	}
+
+	public JButton getJbtnProfesorManage() {
+		return jbtnProfesorManage;
+	}
+
+	public JButton getJbtnMajorManage() {
+		return jbtnMajorManage;
+	}
+
+	public JButton getJbtnSubjectManage() {
+		return jbtnSubjectManage;
+	}
+
+	public JLabel getJlblMyName() {
+		return jlblMyName;
+	}
+
+	public JLabel getJlblEmpno() {
+		return jlblEmpno;
+	}
+
+	public JLabel getJlblMyEmail() {
+		return jlblMyEmail;
+	}
+
+	public JLabel getJlblLoginTime() {
+		return jlblLoginTime;
+	}
+
+	public static EmployVO geteVO() {
+		return eVO;
+	}
+	
 	public static void main(String[] args) {
 		new EmployMainFrame();
 	}

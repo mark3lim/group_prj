@@ -55,20 +55,20 @@ public class EmpMainFrame extends JFrame {
 
 		// 이름, 내 정보, 로그아웃이 모여있는 패널과 설정
 		pnlName = new JPanel();
-		pnlName.setBounds(740, jlblMyPhoto.getY() - 45, 280, 35);
+		pnlName.setBounds(680, jlblMyPhoto.getY() - 45, 340, 35);
 		pnlName.setLayout(null);
 
 		Font font = new Font("맑은 고딕", Font.BOLD, 16);
 
-		jlblMyName = new JLabel("농담곰", JLabel.CENTER);
-		jlblMyName.setBounds(0, 2, 80, 30);
+		jlblMyName = new JLabel();
+		jlblMyName.setBounds(0, 2, 140, 30);
 		jlblMyName.setBorder(new LineBorder(Color.pink));
 		jlblMyName.setFont(font);
 
 		jbtnMyProfile = new JButton("내 정보");
-		jbtnMyProfile.setBounds(90, 5, 85, 25);
+		jbtnMyProfile.setBounds(152, 5, 85, 25);
 		jbtnLogout = new JButton("로그아웃");
-		jbtnLogout.setBounds(190, 5, 85, 25);
+		jbtnLogout.setBounds(250, 5, 85, 25);
 
 		pnlName.add(jlblMyName);
 		pnlName.add(jbtnMyProfile);
@@ -112,26 +112,16 @@ public class EmpMainFrame extends JFrame {
 		return jbtnMyProfile;
 	}
 
-
-
 	public JButton getJbtnLogout() {
 		return jbtnLogout;
 	}
-
-
 
 	public JLabel getJlblMyPhoto() {
 		return jlblMyPhoto;
 	}
 
-
-
 	public JLabel getJlblMyName() {
 		return jlblMyName;
 	}
-
-//	public static void main(String[] args) {
-//		new MainFrame();
-//	}
 
 }
