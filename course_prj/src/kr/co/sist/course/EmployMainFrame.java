@@ -6,8 +6,15 @@ import javax.swing.JFrame;
 public class EmployMainFrame extends JFrame {
 
 	public EmployMainFrame() {
-		setBounds(500, 100, 1200, 800);
+		super("메인");
+
+		setBounds(400, 100, 1200, 800);
 		setVisible(true);
+		new EmployProfManageDialog(this);
+
+		this.setResizable(false);
+
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 
 	public static void main(String[] args) {

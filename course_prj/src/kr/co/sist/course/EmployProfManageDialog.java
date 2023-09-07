@@ -2,12 +2,10 @@ package kr.co.sist.course;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.ScrollPane;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -21,11 +19,19 @@ import javax.swing.table.DefaultTableModel;
 @SuppressWarnings("serial")
 public class EmployProfManageDialog extends JDialog {
 
-//	private Main main;
+	private EmployMainFrame emf;
 
-	public EmployProfManageDialog() {
-//		super(main,"관리자",true);
-//		this.main=main;
+	DefaultComboBoxModel<String> dcbmSearch;
+	JComboBox<String> jcbSearch;
+	JTextField jtfSearch;
+	JTable jtProf;
+	JButton jbtnAdd;
+	JButton jbtnSearch;
+	EmployProfManageEvt epme;
+
+	public EmployProfManageDialog(EmployMainFrame emf) {
+		super(emf, "관리자", true);
+		this.emf = emf;
 
 		// 타이틀
 		JLabel jlblTitle = new JLabel("교수관리");
@@ -33,23 +39,23 @@ public class EmployProfManageDialog extends JDialog {
 		JLabel jlblback = new JLabel(
 				new ImageIcon("E:/dev/workspace/html_prj/src/main/webapp/common/images/backgr.png"));
 
-		DefaultComboBoxModel<String> dcbmSearch = new DefaultComboBoxModel<String>();
-		JComboBox<String> jcbSearch = new JComboBox<String>(dcbmSearch);
+		dcbmSearch = new DefaultComboBoxModel<String>();
+		jcbSearch = new JComboBox<String>(dcbmSearch);
 
 		dcbmSearch.addElement("사번");
 		dcbmSearch.addElement("이름");
 
 		// 검색창
-		JTextField jtfSearch = new JTextField();
+		jtfSearch = new JTextField();
 		// 등록버튼
-		JButton jbtnAdd = new JButton("등록");
+		jbtnAdd = new JButton("등록");
 		// 조회버튼
-		JButton jbtnSearch = new JButton("조회");
+		jbtnSearch = new JButton("조회");
 		// 테이블
 		String[] columNames = { "No", "사번", "이름", "학부명", "학과명", "전화번호", "이메일" };
 		DefaultTableModel dtmProf = new DefaultTableModel(null, columNames);
-		JTable jtProf = new JTable(dtmProf);
-		JScrollPane jspJtProf=new JScrollPane(jtProf); 
+		jtProf = new JTable(dtmProf);
+		JScrollPane jspJtProf = new JScrollPane(jtProf);
 
 		// Bounds
 		jlblback.setBounds(0, 0, 1000, 700);
@@ -68,7 +74,6 @@ public class EmployProfManageDialog extends JDialog {
 		jbtnSearch.setFont(font);
 		jbtnAdd.setFont(font);
 		jspJtProf.setFont(font);
-		
 
 		// back-color
 //		jcbSearch.setBackground(new Color(0xE0E0E0));
@@ -78,9 +83,11 @@ public class EmployProfManageDialog extends JDialog {
 		jbtnSearch.setBorder(null);
 		jbtnAdd.setBorder(null);
 
+		epme = new EmployProfManageEvt(this);
+		jbtnAdd.addActionListener(epme);
+
 		// add
 		add(jlblTitle);
-//		add(jtProf);
 		add(jbtnSearch);
 		add(jbtnAdd);
 		add(jtfSearch);
@@ -93,14 +100,35 @@ public class EmployProfManageDialog extends JDialog {
 		setLayout(null);
 		setResizable(false);
 
-		setBounds(500, 100, 1000, 700);
+		setBounds(emf.getX() + 100, emf.getY() + 50, 1000, 700);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}// EmployProfManageDialog
 
-	public static void main(String[] args) {
-		new EmployProfManageDialog();
-	}// mian
+	public DefaultComboBoxModel<String> getDcbmSearch() {
+		return dcbmSearch;
+	}
+
+	public JComboBox<String> getJcbSearch() {
+		return jcbSearch;
+	}
+
+	public JTextField getJtfSearch() {
+		return jtfSearch;
+	}
+
+	public JTable getJtProf() {
+		return jtProf;
+	}
+
+	public JButton getJbtnAdd() {
+		return jbtnAdd;
+	}
+
+	public JButton getJbtnSearch() {
+		return jbtnSearch;
+	}
+
 
 }// class
