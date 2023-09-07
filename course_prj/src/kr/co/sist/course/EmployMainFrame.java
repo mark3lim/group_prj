@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
 public class EmployMainFrame extends JFrame {
-
+	//인영!!!
 	public EmployMainFrame() {
 		super("메인");
 

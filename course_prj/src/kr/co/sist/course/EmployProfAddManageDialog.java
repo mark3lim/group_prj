@@ -11,8 +11,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
 
+//인영!!!
 @SuppressWarnings("serial")
 public class EmployProfAddManageDialog extends JDialog {
 
