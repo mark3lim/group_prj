@@ -71,7 +71,8 @@ public class EmployMainEvt extends WindowAdapter implements ActionListener {
 	}
 	
 	public void logout() {
-		System.out.println("Logout");
+		new LoginFrame();
+		emf.dispose();
 	}
 	
 	@Override

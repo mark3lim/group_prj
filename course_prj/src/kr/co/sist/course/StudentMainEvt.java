@@ -18,7 +18,8 @@ public class StudentMainEvt extends WindowAdapter implements ActionListener {
 	}
 	
 	public void logout() {
-		System.out.println("logout");
+		new LoginFrame();
+		smf.dispose();
 	}
 	
 	public void myPage() {
