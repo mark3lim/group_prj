@@ -2,6 +2,8 @@ package kr.co.sist.course;
 
 import javax.swing.JFrame;
 
+//인영
+
 @SuppressWarnings("serial")
 public class EmployMainFrame extends JFrame {
 

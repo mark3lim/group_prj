@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+//인영
 @SuppressWarnings("serial")
 public class EmployProfEditManageDialog extends JDialog {
 

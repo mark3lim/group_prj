@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+//인영
 public class EmployProfManageEvt extends WindowAdapter implements ActionListener, MouseListener {
 
 	private EmployProfManageDialog epmd;
