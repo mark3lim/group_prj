@@ -35,7 +35,7 @@ public class EmployMainFrame extends JFrame {
 	
 	public EmployMainFrame(EmployVO VO) {
 		eVO = VO;
-		flag = eVO.getUsercode()=='M' ? true : false; //관리자면 true를 교수면 false를 반환한다.
+		flag = eVO.getUsercode()=='E' ? true : false; //관리자면 true를 교수면 false를 반환한다.
 		
 		// 배경 사진 설정
 		JLabel jlblBg = new JLabel(new ImageIcon("C:/Users/user/git/group_prj/course_prj/src/kr/co/sist/course/images/mainBg.png"));
@@ -226,7 +226,7 @@ public class EmployMainFrame extends JFrame {
 	public static void main(String[] args) {
 		//임시 값
 		EmployVO v = new EmployVO();
-		v.setUsercode('M');
+		v.setUsercode('E');
 		v.setName("농담곰");
 		v.setEmpno("EMP000100");
 		v.setDptName("컴퓨터공학부");
