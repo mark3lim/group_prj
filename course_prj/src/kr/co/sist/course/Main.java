@@ -11,14 +11,14 @@ public class Main extends JFrame{
 		setVisible(true);
 		new EmployStuManageDialog(this);
 		
-		this.setResizable(false);
+		setResizable(false);
 		
 		//임시 window closing
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 
 	public static void main(String[] args) {
-
+		new Main();
 	}
 
 }
