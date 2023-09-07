@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-//인영!!!
+//인영
 @SuppressWarnings("serial")
 public class EmployProfAddManageDialog extends JDialog {
 
