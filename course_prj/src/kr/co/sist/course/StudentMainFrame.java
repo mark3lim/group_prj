@@ -49,7 +49,7 @@ public class StudentMainFrame extends JFrame {
 		
 		jbtnRegisterSubject = new JButton("수강과목");
 		jbtnRegisterSubject.setPreferredSize(d);
-		jbtnGradeSearch = new JButton("성적조외");
+		jbtnGradeSearch = new JButton("성적조회");
 		jbtnGradeSearch.setPreferredSize(d);
 		jbtnCourseApply = new JButton("수강신청");
 		jbtnCourseApply.setPreferredSize(d);
@@ -62,11 +62,11 @@ public class StudentMainFrame extends JFrame {
 		JPanel pnlInfoTag = setInfoLable(); //분류 라벨 만드는 method
 		pnlInfoTag.setLocation(jlblMyPhoto.getX(), jlblMyPhoto.getY()+290);
 		
-		jlblDept = new JLabel("컴퓨터공학부");
+		jlblDept = new JLabel();
 		jlblDept.setBounds(100, 0, 200, 30);
-		jlblMajor = new JLabel("컴퓨터공학");
+		jlblMajor = new JLabel();
 		jlblMajor.setBounds(100, 35, 200, 30);
-		jlblEmail = new JLabel("test@gmail.com");
+		jlblEmail = new JLabel();
 		jlblEmail.setBounds(100, 70, 200, 30);
 		jlblLoginTime = new JLabel();
 		jlblLoginTime.setBounds(100, 105, 200, 30);
@@ -78,20 +78,21 @@ public class StudentMainFrame extends JFrame {
 		
 		//이름, 내 정보, 로그아웃이 모여있는 패널과 설정
 		JPanel pnlName = new JPanel();
-		pnlName.setBounds(740, jlblMyPhoto.getY()-45, 280, 35);
+		pnlName.setBounds(720, jlblMyPhoto.getY()-45, 300, 35);
 		pnlName.setLayout(null);
 		
 		Font font = new Font("맑은 고딕", Font.BOLD, 16);
 		
-		jlblMyName = new JLabel("농담곰", JLabel.CENTER);
-		jlblMyName.setBounds(0, 2, 80, 30);
+		jlblMyName = new JLabel();
+		jlblMyName.setHorizontalAlignment(JLabel.CENTER);
+		jlblMyName.setBounds(0, 2, 105, 30);
 		jlblMyName.setBorder(new LineBorder(Color.pink));
 		jlblMyName.setFont(font);
 		
 		jbtnMyProfile = new JButton("내 정보");
-		jbtnMyProfile.setBounds(90, 5, 85, 25);
+		jbtnMyProfile.setBounds(115, 5, 85, 25);
 		jbtnLogout = new JButton("로그아웃");
-		jbtnLogout.setBounds(190, 5, 85, 25);
+		jbtnLogout.setBounds(212, 5, 85, 25);
 		
 		pnlName.add(jlblMyName);
 		pnlName.add(jbtnMyProfile);
@@ -107,11 +108,8 @@ public class StudentMainFrame extends JFrame {
 		
 		add(jlblBg);
 
-		StudentMainEvt sme = new StudentMainEvt(this);
-		//로그인 시간 설정
-		sme.setLoginTime();
-		
 		//이벤트 연결
+		StudentMainEvt sme = new StudentMainEvt(this);
 		jbtnMyProfile.addActionListener(sme);
 		jbtnLogout.addActionListener(sme);
 		jbtnRegisterSubject.addActionListener(sme);
@@ -119,6 +117,7 @@ public class StudentMainFrame extends JFrame {
 		jbtnCourseApply.addActionListener(sme);
 		addWindowListener(sme);
 		
+		//화면 크기 설정
 		setBounds(200, 150, 1200, 800);
 		setVisible(true);
 	}
@@ -142,10 +141,6 @@ public class StudentMainFrame extends JFrame {
 		
 		
 		return pnl;
-	}
-
-	public static void main(String[] args) {
-		new StudentMainFrame(sVO);
 	}
 
 	public JButton getJbtnMyProfile() {
@@ -196,4 +191,15 @@ public class StudentMainFrame extends JFrame {
 		return sVO;
 	}
 
+	public static void main(String[] args) {
+		//임시 값
+		StudentVO s = new StudentVO();
+		s.setName("농담곰");
+		s.setDptName("연극영화부");
+		s.setMajorName("연극영화과");
+		s.setEmail("testest@naver.com");
+		s.setId(2023001);
+		new StudentMainFrame(s);
+	}
+	
 }
