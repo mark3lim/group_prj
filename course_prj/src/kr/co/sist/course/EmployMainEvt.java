@@ -1,4 +1,4 @@
-package kr.co.sist.course;
+   package kr.co.sist.course;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
-
+//돼라
 /* 태균 *//* 태균 *//* 태균 *//* 태균 *//* 태균 *//* 태균 *//* 태균 *//* 태균 */
 public class EmployMainEvt extends WindowAdapter implements ActionListener {
 	

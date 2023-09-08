@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-
+//돼라
 @SuppressWarnings("serial")
 public class EmployStuManageDialog extends JDialog {
 

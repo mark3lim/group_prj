@@ -1,7 +1,7 @@
 package kr.co.sist.course;
 
 public class StudentDAO {
-	
+	//돼라
 	private static StudentDAO sDAO;
 	
 	private StudentDAO() {

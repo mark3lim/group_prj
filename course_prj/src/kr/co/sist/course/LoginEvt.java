@@ -7,7 +7,7 @@ import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
-
+//돼라
 public class LoginEvt extends WindowAdapter implements ActionListener {
 	
 	private LoginFrame lf;

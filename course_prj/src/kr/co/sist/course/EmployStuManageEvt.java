@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
+//돼라
 public class EmployStuManageEvt extends WindowAdapter implements ActionListener, MouseListener {
 
 	private EmployStuManageDialog esmd;

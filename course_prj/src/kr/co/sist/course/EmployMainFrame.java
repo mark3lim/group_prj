@@ -15,8 +15,8 @@ import javax.swing.border.LineBorder;
 /* 태균 *//* 태균 *//* 태균 *//* 태균 *//* 태균 *//* 태균 *//* 태균 *//* 태균 */
 @SuppressWarnings("serial")
 public class EmployMainFrame extends JFrame {
-	
-	private JButton jbtnStuManage;
+	//돼라
+	private JButton jbtnStuManage; 
 	private JButton jbtnProfesorManage;
 	private JButton jbtnMajorManage;
 	private JButton jbtnSubjectManage;

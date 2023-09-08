@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import kr.co.sist.dao.DbConn;
-
+//돼라
 public class LoginDAO {
 	
 	private static LoginDAO lDAO;

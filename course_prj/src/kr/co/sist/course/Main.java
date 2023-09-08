@@ -1,7 +1,7 @@
 package kr.co.sist.course;
 
 import javax.swing.JFrame;
-
+//돼라
 public class Main extends JFrame{
 	
 	public Main() {
