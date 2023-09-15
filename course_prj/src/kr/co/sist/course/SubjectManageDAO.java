@@ -19,7 +19,7 @@ public class SubjectManageDAO {
 		return smDAO;
 	}// getInstance
 
-	public List<SubjectManageVO> selectAllSubject() throws SQLException {
+	public List<SubjectManageVO> selectAllSubject(String dptname, String majorname) throws SQLException {
 		List<SubjectManageVO> sas = new ArrayList<SubjectManageVO>();
 
 		Connection con = null;
@@ -33,18 +33,29 @@ public class SubjectManageDAO {
 			// 2. DB연결얻기
 			con = db.getConnection("192.168.10.142", "applepie", "mincho");
 			// 3. 쿼리문 생성객체 얻기
-			String selectAllSubject = "select subcode, subname, credit, subtype, empno, majorcode, dptcode from subject";
-			pstmt = con.prepareStatement(selectAllSubject);
+			StringBuilder selectAllSubject = new StringBuilder();
+			selectAllSubject
+			.append("  select s.subcode, s.subname, d.dptname, m.majorname, e.ename, s.credit, s.subtype 	")
+			.append("  from subject s, major m, dpt d, emp e  																	")
+			.append("  where s.dptcode=m.dptcode and m.dptcode=d.dptcode and e.dptcode=s.dptcode  		")
+			.append("	and d.dptname=? and m.majorname=?	");
+			pstmt = con.prepareStatement(selectAllSubject.toString());
 			// 4. 바인드 변수 값 설정
+			pstmt.setString(1, dptname);
+			pstmt.setString(2, majorname);
 			// 5. 쿼리문 수행 후 결과 얻기
 			rs = pstmt.executeQuery();
-
 			SubjectManageVO smVO = null;
 
 			while (rs.next()) {
-				smVO = new SubjectManageVO(rs.getString("subcode"), rs.getString("subname"), rs.getInt("credit"),
-						rs.getString("subtype").charAt(0), rs.getString("empno"), rs.getString("majorcode"),
-						rs.getString("dptcode"));
+				smVO = new SubjectManageVO(	
+						rs.getString("subcode"), 
+						rs.getString("subname"), 
+						rs.getString("dptname"),
+						rs.getString("majorname"),
+						rs.getString("ename"), 
+						rs.getInt("credit"),
+						rs.getString("subtype").charAt(0));
 				sas.add(smVO);
 			} // end while
 
@@ -69,13 +80,12 @@ public class SubjectManageDAO {
 			// 2.
 			con = db.getConnection("192.168.10.142", "applepie", "mincho");
 			// 3.
-			String selectAllDpt = "select dptcode, dptname from dpt";
+			String selectAllDpt = " select dptname from dpt ";
 			pstmt = con.prepareStatement(selectAllDpt);
 			// 4.
 			// 5.
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				sad.add(rs.getString("dptcode"));
 				sad.add(rs.getString("dptname"));
 			} // end while
 
@@ -85,6 +95,38 @@ public class SubjectManageDAO {
 		}
 		return sad;
 	}// selectAllDpt
+	
+	public List<String> selectAllMajor(String dptname) throws SQLException {
+		List<String> sam = new ArrayList<String>();
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		DbConn db = DbConn.getInstance();
+
+		try {
+			// 1.
+			// 2.
+			con = db.getConnection("192.168.10.142", "applepie", "mincho");
+			// 3.
+			String selectAllMajor = " select m.majorname from dpt d, major m "
+					+ "where d.dptcode=m.dptcode and d.dptname=? ";
+			pstmt = con.prepareStatement(selectAllMajor);
+			// 4.
+			pstmt.setString(1, dptname);
+			// 5.
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				sam.add(rs.getString("majorname"));
+			} // end while
+
+		} finally {
+			// 6.
+			db.dbClose(rs, pstmt, con);
+		}
+		return sam;
+	}// selectAllMajor
 
 	public List<String> selectAllSub() throws SQLException {
 		List<String> sublist = new ArrayList<String>();
@@ -100,7 +142,7 @@ public class SubjectManageDAO {
 			// 2.
 			con = db.getConnection("192.168.10.142", "applepie", "mincho");
 			// 3.
-			String selectAllSub = "select subcode, subname, credit, subtype from subject";
+			String selectAllSub = " select subcode, subname, credit, subtype from subject ";
 			pstmt = con.prepareStatement(selectAllSub);
 			// 4.
 			// 5.
@@ -119,6 +161,8 @@ public class SubjectManageDAO {
 		return sublist;
 	}// selectAllSub
 
+	
+	
 	public List<SubjectManageVO> selectSub(String subcode, String subname) {
 	    List<SubjectManageVO> subList = new ArrayList<>();
 
@@ -135,9 +179,9 @@ public class SubjectManageDAO {
 	        // 쿼리문 생성 객체 얻기
 	        StringBuilder selectSub = new StringBuilder();
 	        selectSub
-	                .append(" select subcode, subname ")
-	                .append(" from subject")
-	                .append(" where subcode=? and subname=? ");
+	                .append(" select subcode, subname 				")
+	                .append(" from subject									")
+	                .append(" where subcode=? and subname=? 	");
 	        // 바인드 변수 값 설정
 	        pstmt = con.prepareStatement(selectSub.toString());
 	        pstmt.setString(1, subcode);
@@ -147,8 +191,8 @@ public class SubjectManageDAO {
 
 	        while (rs.next()) {
 	            SubjectManageVO smVO = new SubjectManageVO();
-	            smVO.setSubCode(rs.getString("subcode"));
-	            smVO.setSubName(rs.getString("subname"));
+	            smVO.setSubCode(rs.getString(" subcode "));
+	            smVO.setSubName(rs.getString(" subname "));
 	            subList.add(smVO);
 	        }
 
@@ -164,9 +208,9 @@ public class SubjectManageDAO {
 	    }
 	    return subList;
 	}//selectSub
-	
-
-
+		
+		
+		
 	public void insertSub(SubjectManageVO smVO) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -180,15 +224,13 @@ public class SubjectManageDAO {
 			pstmt.setString(1, smVO.getSubCode());
 			pstmt.setString(2, smVO.getSubName());
 			pstmt.setInt(3, smVO.getCredit());
-			pstmt.setString(4, smVO.getSubCode());
-			pstmt.setString(5, smVO.getEmpno());
-			pstmt.setString(6, smVO.getMajorCode());
-			pstmt.setString(7, smVO.getDptCode());
+			pstmt.setObject(4, smVO.getSubType());
 
 			pstmt.executeUpdate();
 		} finally {
 			db.dbClose(null, pstmt, con);
 		} // end finally
+		
 	}// insertSub
 
 	public int updateSub(SubjectManageVO smVO) throws SQLException {
@@ -201,9 +243,9 @@ public class SubjectManageDAO {
 			con = db.getConnection("192.168.10.142", "applepie", "mincho");
 			StringBuilder updateSub = new StringBuilder();
 			updateSub
-			.append(" update subject ")
-			.append(" set subname=? ")
-			.append(" where subcode=? ");
+			.append(" update subject 		")
+			.append(" set subname=? 		")
+			.append(" where subcode=? 	");
 
 			pstmt = con.prepareStatement(updateSub.toString());
 
@@ -219,10 +261,12 @@ public class SubjectManageDAO {
 	}// updateSub
 
 	public static void main(String[] args) throws SQLException {
-//				System.out.println(getInstance().selectAllSubject());
+//		System.out.println(getInstance().selectAllSubject());
+//		System.out.println(getInstance().selectAllMajor());
 //		System.out.println(getInstance().selectAllDpt());
-//			System.out.println(getInstance().selectAllSub());
-//		System.out.println(getInstance().selectSub(null, null));
-
+//		System.out.println(getInstance().selectAllSub());
+//		System.out.println(getInstance().selectSub("KOR001001", "현대문학사"));
+		
 	}// main
+
 }// class

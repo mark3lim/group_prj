@@ -3,26 +3,26 @@ package kr.co.sist.course;
 public class SubjectManageVO {
 	private String subCode;
 	private String subName;
+	private String dptName;
+	private String majorName;
+	private String eName;
 	private int credit;
 	private char subType;
-	private String empno;
-	private String majorCode;
-	private String dptCode;
 	
 	public SubjectManageVO() {
 		super();
 	}
 
-	public SubjectManageVO(String subCode, String subName, int credit, char subType, String empno, String majorCode,
-			String dptCode) {
+	public SubjectManageVO(String subCode, String subName, String dptName, String majorName, String eName, int credit,
+			char subType) {
 		super();
 		this.subCode = subCode;
 		this.subName = subName;
+		this.dptName = dptName;
+		this.majorName = majorName;
+		this.eName = eName;
 		this.credit = credit;
 		this.subType = subType;
-		this.empno = empno;
-		this.majorCode = majorCode;
-		this.dptCode = dptCode;
 	}
 
 	public String getSubCode() {
@@ -41,6 +41,30 @@ public class SubjectManageVO {
 		this.subName = subName;
 	}
 
+	public String getDptName() {
+		return dptName;
+	}
+
+	public void setDptName(String dptName) {
+		this.dptName = dptName;
+	}
+
+	public String getMajorName() {
+		return majorName;
+	}
+
+	public void setMajorName(String majorName) {
+		this.majorName = majorName;
+	}
+
+	public String geteName() {
+		return eName;
+	}
+
+	public void seteName(String eName) {
+		this.eName = eName;
+	}
+
 	public int getCredit() {
 		return credit;
 	}
@@ -57,35 +81,12 @@ public class SubjectManageVO {
 		this.subType = subType;
 	}
 
-	public String getEmpno() {
-		return empno;
-	}
-
-	public void setEmpno(String empno) {
-		this.empno = empno;
-	}
-
-	public String getMajorCode() {
-		return majorCode;
-	}
-
-	public void setMajorCode(String majorCode) {
-		this.majorCode = majorCode;
-	}
-
-	public String getDptCode() {
-		return dptCode;
-	}
-
-	public void setDptCode(String dptCode) {
-		this.dptCode = dptCode;
-	}
-
 	@Override
 	public String toString() {
-		return "SubjectManageVO [subCode=" + subCode + ", subName=" + subName + ", credit=" + credit + ", subType="
-				+ subType + ", empno=" + empno + ", majorCode=" + majorCode + ", dptCode=" + dptCode + "]";
+		return "SubjectManageVO [subCode=" + subCode + ", subName=" + subName + ", dptName=" + dptName + ", majorName="
+				+ majorName + ", eName=" + eName + ", credit=" + credit + ", subType=" + subType + "]";
 	}
+	
 	
 }//class
 
